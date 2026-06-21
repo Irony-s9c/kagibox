@@ -1,0 +1,64 @@
+KagiBox Software License Agreement
+
+Copyright (c) 2025 Irony-s9c. All rights reserved.
+
+This agreement governs your use of the KagiBox password manager software ("the Software").
+
+1. GRANT OF USE
+   You may install and use the Software free of charge for personal or commercial purposes.
+
+2. RESTRICTIONS
+   - You may not redistribute, sell, or sublicense the Software without prior written permission.
+   - You may not reverse-engineer, decompile, or modify the Software except as permitted by applicable law.
+
+3. DISCLAIMER OF WARRANTIES
+   The Software is provided "AS IS" without warranty of any kind, express or implied.
+   The developer makes no guarantees regarding accuracy, reliability, or fitness for a particular purpose.
+
+4. LIMITATION OF LIABILITY
+   In no event shall the developer be liable for any loss of data, damages, or other losses
+   arising from the use or inability to use the Software.
+
+5. SECURITY
+   While the Software encrypts stored passwords locally, the developer does not guarantee
+   absolute security. Users are responsible for maintaining secure master passwords.
+
+6. UPDATES
+   The Software may automatically check for and install updates. Update content is
+   published at https://github.com/Irony-s9c/kagibox
+
+By installing or using the Software, you agree to the terms of this agreement.
+
+---
+
+KagiBox ソフトウェア使用許諾契約
+
+Copyright (c) 2025 Irony-s9c. All rights reserved.
+
+本契約は、パスワードマネージャー KagiBox（以下「本ソフトウェア」）の使用条件を定めます。
+
+1. 使用許可
+   本ソフトウェアは個人・商用を問わず、無償でインストールおよび使用できます。
+
+2. 制限事項
+   - 開発者の書面による許可なく、本ソフトウェアを再配布・販売・サブライセンスすることはできません。
+   - 法令で許可される場合を除き、リバースエンジニアリング・改変を行うことはできません。
+
+3. 無保証
+   本ソフトウェアは「現状のまま」提供されます。
+   正確性・信頼性・特定目的への適合性について、開発者は一切保証しません。
+
+4. 責任の制限
+   本ソフトウェアの使用または使用不能から生じるデータの損失その他の損害について、
+   開発者は一切の責任を負いません。
+
+5. セキュリティ
+   本ソフトウェアはパスワードをローカルで暗号化して保存しますが、
+   完全なセキュリティを保証するものではありません。
+   安全なマスターパスワードの管理はユーザーの責任で行ってください。
+
+6. アップデート
+   本ソフトウェアは自動的に更新を確認・適用する場合があります。
+   更新内容は https://github.com/Irony-s9c/kagibox で公開されます。
+
+本ソフトウェアをインストールまたは使用することにより、本契約の条件に同意したものとみなします。

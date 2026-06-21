@@ -1,0 +1,61 @@
+# KagiBox
+
+ローカル暗号化型のパスワードマネージャー。インターネット不要、データはすべて自分の PC に保存されます。
+
+## 特徴
+
+- **完全ローカル保存** — クラウドにデータを送信しません
+- **AES-256-GCM 暗号化** — 業界標準の暗号化でパスワードを保護
+- **マスターパスワード1つで管理** — 覚えるパスワードはひとつだけ
+- **パスワード生成機能** — 長さ・文字種・記号を細かく指定して生成
+- **サービスアイコン対応** — 各サービスに PNG / JPG アイコンを設定可能
+- **自動ロック** — 無操作で自動的にロック
+- **クリップボード自動クリア** — コピー後に一定時間でクリア
+- **自動アップデート** — アプリ内から最新版に更新可能
+- **日本語 / English 対応**
+
+## ダウンロード・インストール
+
+[Releases](https://github.com/Irony-s9c/kagibox/releases/latest) から最新の `KagiBox_x.x.x_x64-setup.exe` をダウンロードしてインストールしてください。
+
+インストール先のデフォルト: `C:\Users\{ユーザー名}\AppData\Local\KagiBox\`
+
+## スクリーンショット
+
+> 準備中
+
+## セキュリティ
+
+- マスターパスワードと暗号化キーは Rust 側のメモリ上でのみ扱い、フロントエンドには渡しません
+- Vault は常に暗号化してディスクに保存し、平文では書き込みません
+- アプリを閉じる・無操作時間が経過するとロックされます
+
+## ビルド方法（開発者向け）
+
+**必要環境:**
+- [Node.js](https://nodejs.org) v18 以上
+- [Rust](https://rustup.rs) (stable)
+- [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
+```bash
+git clone https://github.com/Irony-s9c/kagibox.git
+cd kagibox
+```
+
+開発サーバー起動:
+```
+dev.bat
+```
+
+インストーラーのビルド・リリース:
+```
+build.bat
+```
+
+## ライセンス
+
+[LICENSE.txt](LICENSE.txt) を参照してください。
+
+---
+
+**開発者:** [Irony-s9c](https://github.com/Irony-s9c)
