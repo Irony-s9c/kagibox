@@ -35,6 +35,7 @@ fn main() {
             commands::search_entries,
             commands::check_update,
             commands::do_update,
+            commands::get_app_version,
         ])
         .setup(|app| {
             commands::spawn_auto_lock_task(app.handle().clone());

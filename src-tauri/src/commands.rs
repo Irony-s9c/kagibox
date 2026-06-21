@@ -335,6 +335,8 @@ pub struct EntryInput {
     pub password: String,
     pub url: String,
     pub memo: String,
+    #[serde(default)]
+    pub icon: Option<String>,
 }
 
 /// エントリ追加 → 即 Vault 保存
@@ -377,6 +379,8 @@ pub struct UpdateEntryInput {
     pub password: String,
     pub url: String,
     pub memo: String,
+    #[serde(default)]
+    pub icon: Option<String>,
 }
 
 /// エントリ編集 → 即 Vault 保存
@@ -554,6 +558,13 @@ pub fn search_entries(
             icon: e.icon.clone(),
         })
         .collect())
+}
+
+// ==================== アプリ情報 ====================
+
+#[tauri::command]
+pub fn get_app_version(app: tauri::AppHandle) -> String {
+    app.package_info().version.to_string()
 }
 
 // ==================== アップデーター ====================

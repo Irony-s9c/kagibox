@@ -857,6 +857,10 @@ async function openSettingsModal() {
     document.getElementById('cfg-clip-clear').value = cfg.clipboard_clear_secs;
     document.getElementById('cfg-lang').value       = cfg.language;
   } catch (_) {}
+  try {
+    const ver = await invoke('get_app_version');
+    document.getElementById('about-version').textContent = 'v' + ver;
+  } catch (_) {}
   document.getElementById('cfg-err').textContent = '';
   openModal('settings-overlay');
 }

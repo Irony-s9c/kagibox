@@ -1,5 +1,6 @@
 node_modules/
-build-log.txt
+build-logs/
+installer/
 signing.ps1
 target/
 src-tauri/target/
