@@ -30,28 +30,6 @@
 - Vault は常に暗号化してディスクに保存し、平文では書き込みません
 - アプリを閉じる・無操作時間が経過するとロックされます
 
-## ビルド方法（開発者向け）
-
-**必要環境:**
-- [Node.js](https://nodejs.org) v18 以上
-- [Rust](https://rustup.rs) (stable)
-- [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-
-```bash
-git clone https://github.com/Irony-s9c/kagibox.git
-cd kagibox
-```
-
-開発サーバー起動:
-```
-dev.bat
-```
-
-インストーラーのビルド・リリース:
-```
-build.bat
-```
-
 ## ライセンス
 
 [LICENSE.txt](LICENSE.txt) を参照してください。
