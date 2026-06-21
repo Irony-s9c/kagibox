@@ -1,0 +1,5 @@
+node_modules/
+build-log.txt
+signing.ps1
+target/
+src-tauri/target/
