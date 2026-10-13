@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="KagiBox.Features.Lock.LockView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+        <!-- Middle layer: one glass card in the centre of the Mica window. -->
+        <Border
+            Width="420"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Padding="0"
+            Style="{StaticResource FluentCard}">
+            <Grid>
+                <Border Style="{StaticResource FluentSheen}" />
+                <StackPanel Padding="36,36,36,32" Spacing="12">
+                    <FontIcon
+                        HorizontalAlignment="Center"
+                        FontSize="40"
+                        Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                        Glyph="&#xE72E;" />
+                    <TextBlock HorizontalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" Text="KagiBox" />
+                    <TextBlock
+                        x:Name="Subtitle"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource Caption}"
+                        Text="マスターパスワードを入力してください"
+                        TextAlignment="Center" />
+
+                    <Border
+                        x:Name="NewNote"
+                        Padding="12,10"
+                        Background="{ThemeResource SystemFillColorCautionBackgroundBrush}"
+                        CornerRadius="8"
+                        Visibility="Collapsed">
+                        <TextBlock Style="{StaticResource Caption}" Foreground="{ThemeResource TextFillColorPrimaryBrush}" TextWrapping="Wrap">
+                            このパスワードで全データを暗号化します。忘れると誰にも復元できないので、必ず覚えておいてください（8 文字以上）。
+                        </TextBlock>
+                    </Border>
+
+                    <PasswordBox
+                        x:Name="MasterBox"
+                        Margin="0,4,0,0"
+                        KeyDown="Box_KeyDown"
+                        KeyUp="Box_KeyUp"
+                        PasswordRevealMode="Peek"
+                        PlaceholderText="マスターパスワード" />
+                    <PasswordBox
+                        x:Name="ConfirmBox"
+                        KeyDown="Box_KeyDown"
+                        KeyUp="Box_KeyUp"
+                        PasswordRevealMode="Peek"
+                        PlaceholderText="もう一度入力（確認）"
+                        Visibility="Collapsed" />
+
+                    <StackPanel x:Name="CapsWarning" Orientation="Horizontal" Spacing="6" Visibility="Collapsed">
+                        <FontIcon FontSize="12" Foreground="{ThemeResource SystemFillColorCautionBrush}" Glyph="&#xE7BA;" />
+                        <TextBlock Style="{StaticResource Caption}" Text="Caps Lock がオンです" />
+                    </StackPanel>
+                    <TextBlock
+                        x:Name="ErrorText"
+                        Foreground="{ThemeResource SystemFillColorCriticalBrush}"
+                        Style="{StaticResource CaptionTextBlockStyle}"
+                        TextWrapping="Wrap"
+                        Visibility="Collapsed" />
+
+                    <Button
+                        x:Name="SubmitButton"
+                        Margin="0,4,0,0"
+                        HorizontalAlignment="Stretch"
+                        Click="Submit_Click"
+                        Style="{StaticResource AccentButtonStyle}">
+                        <Grid>
+                            <TextBlock x:Name="SubmitText" Text="アンロック" />
+                            <ProgressRing
+                                x:Name="Busy"
+                                Width="16"
+                                Height="16"
+                                IsActive="False"
+                                Visibility="Collapsed" />
+                        </Grid>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

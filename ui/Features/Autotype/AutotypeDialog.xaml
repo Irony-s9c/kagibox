@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="KagiBox.Features.Autotype.AutotypeDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:KagiBox.Core"
+    Title="自動入力するアカウントを選択"
+    CloseButtonText="キャンセル"
+    Style="{StaticResource DefaultContentDialogStyle}">
+
+    <StackPanel MinWidth="440" Spacing="10">
+        <TextBlock Style="{StaticResource Caption}" Text="選ぶと、元の画面に ID → Tab → パスワード → Enter を入力します。" />
+        <TextBox x:Name="SearchBox" PlaceholderText="検索して Enter で入力" PreviewKeyDown="SearchBox_PreviewKeyDown" TextChanged="SearchBox_TextChanged" />
+        <ListView
+            x:Name="List"
+            MaxHeight="360"
+            IsItemClickEnabled="True"
+            ItemClick="List_ItemClick"
+            PreviewKeyDown="List_PreviewKeyDown"
+            SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="core:Account">
+                    <StackPanel Padding="2,6">
+                        <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="{x:Bind DisplayName}" />
+                        <TextBlock Style="{StaticResource Caption}" Text="{x:Bind DisplayUser}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock x:Name="EmptyText" Style="{StaticResource Caption}" Text="一致するアカウントはありません" Visibility="Collapsed" />
+    </StackPanel>
+</ContentDialog>

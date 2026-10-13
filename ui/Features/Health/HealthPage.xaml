@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KagiBox.Features.Health.HealthPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:KagiBox.Core"
+    Background="Transparent">
+
+    <Page.Resources>
+        <DataTemplate x:Key="IssueTemplate" x:DataType="core:HealthItem">
+            <Grid Padding="4,6" ColumnSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="{x:Bind Service}" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Style="{StaticResource Caption}" Text="{x:Bind Username}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" Spacing="6">
+                    <TextBlock Style="{StaticResource Caption}">
+                        <Run Text="{x:Bind PasswordLength}" /><Run Text=" 文字" />
+                    </TextBlock>
+                    <FontIcon FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Glyph="&#xE76C;" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel Padding="28,20,28,28" Spacing="12">
+            <Grid>
+                <TextBlock Style="{StaticResource PageTitle}" Text="セキュリティ診断" />
+                <Button HorizontalAlignment="Right" Click="Run_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon FontSize="14" Glyph="&#xE72C;" />
+                        <TextBlock Text="再診断" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <Border Padding="0" Style="{StaticResource FluentCard}">
+                <Grid>
+                    <Border Style="{StaticResource FluentSheen}" />
+                    <Grid Padding="24,20" ColumnSpacing="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Width="88" Height="88">
+                            <ProgressRing
+                                x:Name="ScoreRing"
+                                Width="88"
+                                Height="88"
+                                IsIndeterminate="False"
+                                Maximum="100"
+                                Value="0" />
+                            <TextBlock
+                                x:Name="ScoreText"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource SubtitleTextBlockStyle}"
+                                Text="--" />
+                        </Grid>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+                            <TextBlock x:Name="SummaryText" Style="{StaticResource BodyStrongTextBlockStyle}" Text="診断しています..." TextWrapping="Wrap" />
+                            <TextBlock Style="{StaticResource Caption}" Text="項目をクリックすると、そのアカウントの編集画面を開きます。" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border VerticalAlignment="Top" Style="{StaticResource FluentCard}">
+                    <StackPanel Spacing="8">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon FontSize="14" Glyph="&#xE8C8;" />
+                            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="使い回しのパスワード" />
+                            <InfoBadge x:Name="ReusedBadge" Style="{StaticResource CriticalValueInfoBadgeStyle}" Visibility="Collapsed" />
+                        </StackPanel>
+                        <ListView x:Name="ReusedList" IsItemClickEnabled="True" ItemClick="Issue_ItemClick" ItemTemplate="{StaticResource IssueTemplate}" SelectionMode="None" />
+                        <TextBlock x:Name="ReusedEmpty" Style="{StaticResource Caption}" Text="使い回しは見つかりませんでした" Visibility="Collapsed" />
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource FluentCard}">
+                    <StackPanel Spacing="8">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon FontSize="14" Glyph="&#xE7BA;" />
+                            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="短いパスワード（10 文字以下）" />
+                            <InfoBadge x:Name="WeakBadge" Style="{StaticResource CriticalValueInfoBadgeStyle}" Visibility="Collapsed" />
+                        </StackPanel>
+                        <ListView x:Name="WeakList" IsItemClickEnabled="True" ItemClick="Issue_ItemClick" ItemTemplate="{StaticResource IssueTemplate}" SelectionMode="None" />
+                        <TextBlock x:Name="WeakEmpty" Style="{StaticResource Caption}" Text="短いパスワードは見つかりませんでした" Visibility="Collapsed" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

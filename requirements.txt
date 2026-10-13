@@ -1,0 +1,26 @@
+# Pinned to exact stable versions (tested with Python 3.13 on Windows 11).
+# Bump deliberately and re-test; do not switch back to ">=" ranges.
+
+# Direct dependencies
+argon2-cffi==25.1.0
+cryptography==50.0.1
+keyboard==0.13.5
+pywin32==312; sys_platform == 'win32'
+pyperclip==1.11.0
+requests==2.34.2
+pyinstaller==6.22.3
+
+# Transitive dependencies (pinned for reproducible installs)
+altgraph==0.17.5
+argon2-cffi-bindings==26.1.0
+certifi==2026.7.22
+cffi==2.1.1
+charset_normalizer==3.5.1
+idna==3.20
+packaging==26.3
+pefile==2024.8.26
+pycparser==3.0
+pyinstaller-hooks-contrib==2026.7
+pywin32-ctypes==0.2.3
+setuptools==84.0.0
+urllib3==2.8.0

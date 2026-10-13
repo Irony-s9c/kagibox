@@ -1,0 +1,63 @@
+# ---- Secrets (never commit) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.cer
+*.crt
+*.snk
+secrets.*
+credentials*.json
+*token*.txt
+
+# ---- User data: vaults, settings, logs (real or test) ----
+data/
+*.kagibox
+settings.json
+logs/
+*.log
+
+# ---- Backups and archives ----
+backups/
+*.zip
+*.7z
+
+# ---- Build output ----
+build/
+dist/
+release/
+installer_output/
+installer/Output/
+Output/
+bin/
+obj/
+*.exe
+*.msi
+
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# ---- .NET (WinUI) ----
+.vs/
+*.user
+*.suo
+
+# ---- Node / Rust (not used now, kept for safety) ----
+node_modules/
+target/
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store

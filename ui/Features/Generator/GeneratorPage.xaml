@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="KagiBox.Features.Generator.GeneratorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <ScrollViewer>
+        <StackPanel Padding="28,20,28,28" Spacing="12">
+            <TextBlock Style="{StaticResource PageTitle}" Text="パスワード生成" />
+
+            <Border MaxWidth="640" HorizontalAlignment="Left" Padding="0" Style="{StaticResource FluentCard}">
+                <Grid>
+                    <Border Style="{StaticResource FluentSheen}" />
+                    <StackPanel Padding="24,20" Spacing="14">
+                        <Grid ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border Padding="14,10" Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="8">
+                                <TextBlock
+                                    x:Name="OutputText"
+                                    FontFamily="{StaticResource KagiMonoFont}"
+                                    FontSize="20"
+                                    IsTextSelectionEnabled="True"
+                                    Text="--"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                            <Button Grid.Column="1" VerticalAlignment="Stretch" Click="Regenerate_Click" ToolTipService.ToolTip="作り直す">
+                                <FontIcon FontSize="16" Glyph="&#xE72C;" />
+                            </Button>
+                        </Grid>
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ProgressBar x:Name="StrengthBar" VerticalAlignment="Center" Maximum="3" />
+                            <TextBlock x:Name="StrengthText" Grid.Column="1" Style="{StaticResource Caption}" />
+                        </Grid>
+                        <Button HorizontalAlignment="Left" Click="Copy_Click" Style="{StaticResource AccentButtonStyle}">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon FontSize="14" Glyph="&#xE8C8;" />
+                                <TextBlock Text="コピー" />
+                            </StackPanel>
+                        </Button>
+
+                        <StackPanel Spacing="2">
+                            <TextBlock x:Name="LengthLabel" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                            <Slider x:Name="LengthSlider" Maximum="64" Minimum="8" StepFrequency="1" ValueChanged="LengthSlider_ValueChanged" />
+                        </StackPanel>
+                        <Grid ColumnSpacing="16" RowSpacing="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <CheckBox x:Name="UpperBox" Checked="Option_Changed" Content="英大文字（A-Z）" Unchecked="Option_Changed" />
+                            <CheckBox x:Name="LowerBox" Grid.Column="1" Checked="Option_Changed" Content="英小文字（a-z）" Unchecked="Option_Changed" />
+                            <CheckBox x:Name="DigitsBox" Grid.Row="1" Checked="Option_Changed" Content="数字（0-9）" Unchecked="Option_Changed" />
+                            <CheckBox x:Name="SymbolsBox" Grid.Row="1" Grid.Column="1" Checked="Option_Changed" Content="記号（!@#$...）" Unchecked="Option_Changed" />
+                            <CheckBox x:Name="AmbiguousBox" Grid.Row="2" Grid.ColumnSpan="2" Checked="Option_Changed" Content="紛らわしい文字を除外（0、O、l、1）" Unchecked="Option_Changed" />
+                        </Grid>
+                        <TextBlock Style="{StaticResource Caption}" Text="ここの設定は、追加・編集画面の「生成」ボタンでも使われます。" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
